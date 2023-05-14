@@ -1,0 +1,30 @@
+{
+  "name": "roledashboardapp",
+  "version": "1.0.0",
+  "description": "User Roles Dashboard App for Siemens Energy",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndreiBold/RoleDashboardApp.git"
+  },
+  "author": "Andrei Bold",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AndreiBold/RoleDashboardApp/issues"
+  },
+  "homepage": "https://github.com/AndreiBold/RoleDashboardApp#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^7.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
