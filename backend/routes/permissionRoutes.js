@@ -7,7 +7,9 @@ const {
     deletePermission 
 } = require('../controllers/permissionController')
 
-router.route('/').get(getPermissions).post(createPermission)
+const { protect } = require('../middleware/authMiddleware')
+
+router.route('/').get(protect, getPermissions).post(createPermission)
 router.route('/:id').delete(deletePermission)
 
 module.exports = router

@@ -12,8 +12,9 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/api/roles', require('./routes/rolesRoutes'))
-app.use('/api/permissions', require('./routes/permissionsRoutes'))
+app.use('/api/roles', require('./routes/roleRoutes'))
+app.use('/api/permissions', require('./routes/permissionRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
 
 app.use(errorHandler)
 
