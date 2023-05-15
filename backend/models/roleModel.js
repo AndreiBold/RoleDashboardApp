@@ -4,8 +4,10 @@ const roleSchema = mongoose.Schema({
     name: {
         type: String,
         required: [true, 'Please add a role name']
-    }
-}, {
+    },
+    permissions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Permission'}]
+}, 
+{
     timestamps: true
 })
 

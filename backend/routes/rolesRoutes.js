@@ -4,11 +4,14 @@ const {
     getRoles, 
     getRole, 
     createRole, 
-    updateRole, 
+    addRolePermission,
+    removeRolePermission, 
     deleteRole 
 } = require('../controllers/roleController')
 
 router.route('/').get(getRoles).post(createRole)
-router.route('/:id').get(getRole).put(updateRole).delete(deleteRole)
+router.route('/:id').get(getRole).delete(deleteRole)
+router.route('/:id/addPerm/:pid').put(addRolePermission)
+router.route('/:id/removePerm/:pid').put(removeRolePermission)
 
 module.exports = router
