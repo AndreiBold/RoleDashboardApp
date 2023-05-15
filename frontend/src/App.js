@@ -1,8 +1,11 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Dashboard from './pages/Dashboard'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Header from './components/MyHeader'
+import Account from './pages/Account'
 
 function App() {
   return (
@@ -14,9 +17,11 @@ function App() {
         <Route path='/' element={<Dashboard />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/account' element={<Account />} />
       </Routes>
     </div>
     </Router>
+    <ToastContainer />
     </>
   );
 }
