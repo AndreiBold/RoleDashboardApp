@@ -10,6 +10,20 @@ const getPermissions = asyncHandler(async (req, res) => {
   res.status(200).json(permissions);
 });
 
+// @desc   GET permission
+// @route  GET /api/permissions/:id
+// @access Private
+const getPermission = asyncHandler(async (req, res) => {
+  const permission = await Permission.findById(req.params.id);
+
+  if (!permission) {
+    res.status(400);
+    throw new Error("Permission not found");
+  }
+
+  res.status(200).json(permission);
+});
+
 // @desc   CREATE permission
 // @route  POST /api/permissions
 // @access Private
@@ -40,6 +54,7 @@ const deletePermission = asyncHandler(async (req, res) => {
 
 module.exports = {
   getPermissions,
+  getPermission,
   createPermission,
   deletePermission,
 };

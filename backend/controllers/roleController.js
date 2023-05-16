@@ -43,9 +43,16 @@ const createRole = asyncHandler(async (req, res) => {
 // @access Private
 const addRolePermission = asyncHandler(async (req, res) => {
   try {
+    const permission = await Permission.findById(req.params.pid)
+
+    if (!permission) {
+      res.status(400);
+      throw new Error("Permission not found");
+    }
+
     const role = await Role.findByIdAndUpdate(
       req.params.id,
-      { $addToSet: { permissions: req.params.pid } },
+      { $addToSet: { permissions: permission } },
       { new: true }
     ).populate("permissions");
 
@@ -66,9 +73,16 @@ const addRolePermission = asyncHandler(async (req, res) => {
 // @access Private
 const removeRolePermission = asyncHandler(async (req, res) => {
   try {
+    const permission = await Permission.findById(req.params.pid)
+
+    if (!permission) {
+      res.status(400);
+      throw new Error("Permission not found");
+    }
+
     const role = await Role.findByIdAndUpdate(
       req.params.id,
-      { $pull: { permissions: req.params.pid } },
+      { $pull: { permissions: permission } },
       { new: true }
     ).populate("permissions");
 
